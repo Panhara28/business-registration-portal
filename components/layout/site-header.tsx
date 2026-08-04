@@ -81,17 +81,17 @@ export function SiteHeader() {
           <div className="flex items-center gap-4">
             <div className="hidden items-center gap-3 border-r border-white/15 pr-4 sm:flex">
               <span className="flex flex-col leading-tight text-white/85">
-                <span lang="km" className="text-lg font-medium">
+                <span lang="km" className="text-xl font-medium">
                   {siteConfig.kingdom.km}
                 </span>
-                <span className="text-sm text-white/60">{siteConfig.kingdom.en}</span>
+                <span className="text-base text-white/60">{siteConfig.kingdom.en}</span>
               </span>
               <Image
                 src="/flag-topnav.png"
                 alt=""
-                width={72}
-                height={48}
-                className="h-12 w-[4.5rem] shrink-0 rounded-sm object-cover shadow-sm"
+                width={96}
+                height={64}
+                className="h-16 w-24 shrink-0 object-cover"
               />
             </div>
 
