@@ -14,6 +14,17 @@ export function HeroSection() {
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
+      <div
+        className="absolute inset-0 opacity-12"
+        aria-hidden="true"
+        style={{
+          backgroundImage: "url('/kbach-pka-chan.png')",
+          backgroundRepeat: 'repeat',
+          backgroundSize: '90px auto',
+          backgroundPosition: 'top left',
+        }}
+      />
+
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-24 lg:px-8">
         <div className="flex flex-col items-start gap-6">
           <p
