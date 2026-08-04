@@ -51,9 +51,9 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.25)]">
       {/* Official-site strip */}
-      <div className="border-b border-border bg-white text-gray-800">
+      <div className="border-b border-white/40 bg-white/60 text-gray-800 backdrop-blur-xl backdrop-saturate-150">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:justify-start">
             <a href="tel:1266" className="flex items-center gap-1 transition hover:opacity-80">
@@ -74,7 +74,11 @@ export function SiteHeader() {
       </div>
 
       {/* Identity bar */}
-      <div className="border-b border-white/10 bg-navy">
+      <div className="relative border-b border-white/15 bg-navy/75 backdrop-blur-xl backdrop-saturate-150">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
+        />
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <BrandLockup />
 
@@ -119,7 +123,7 @@ export function SiteHeader() {
       <nav
         ref={navRef}
         aria-label={t('mainNavigation')}
-        className="hidden border-b border-border bg-background shadow-soft lg:block"
+        className="hidden border-b border-white/40 bg-white/60 backdrop-blur-xl backdrop-saturate-150 lg:block"
       >
         <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <ul className="flex items-stretch">
@@ -162,7 +166,7 @@ export function SiteHeader() {
 
                   {open && (
                     <div className="absolute left-0 top-full z-50 w-80">
-                      <ul className="mt-1 overflow-hidden rounded-xl border border-border bg-card p-1.5 shadow-lifted">
+                      <ul className="mt-1 overflow-hidden rounded-xl border border-white/50 bg-white/80 p-1.5 shadow-lifted backdrop-blur-xl backdrop-saturate-150">
                         <li className="border-b border-border/60 pb-1.5">
                           <Link
                             href={item.href}
@@ -207,7 +211,7 @@ export function SiteHeader() {
               href={siteConfig.links.login}
               variant="ghost"
               size="sm"
-              className="h-9 text-foreground hover:bg-muted hover:text-navy"
+              className="h-9 rounded-full border border-border/60 bg-white/50 text-foreground backdrop-blur-md hover:bg-white/80 hover:text-navy"
             >
               <LogIn className="size-4" aria-hidden="true" />
               <span lang={locale}>{t('logIn')}</span>
@@ -215,7 +219,7 @@ export function SiteHeader() {
             <LinkButton
               href={siteConfig.links.register}
               size="sm"
-              className="h-9 bg-teal text-white hover:bg-teal/90"
+              className="h-9 rounded-full bg-teal text-white shadow-sm hover:bg-teal/90"
             >
               <UserPlus className="size-4" aria-hidden="true" />
               <span lang={locale}>{t('registerNewUser')}</span>
@@ -229,7 +233,7 @@ export function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label={t('mainNavigation')}
-          className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-border bg-background lg:hidden"
+          className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-white/40 bg-white/85 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
         >
           <ul className="mx-auto flex max-w-7xl flex-col divide-y divide-border px-4 sm:px-6">
             {mainNavigation.map((item) => {
