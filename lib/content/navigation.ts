@@ -4,6 +4,24 @@ import type { NavItem } from '@/lib/types'
 export const mainNavigation: NavItem[] = [
   { href: '/', labelKm: 'ទំព័រដើម', labelEn: 'Home' },
   {
+    href: '/laws',
+    labelKm: 'ឯកសារច្បាប់ និងបទប្បញ្ញត្តិ',
+    labelEn: 'Legal Documents and Regulations',
+    children: [
+      { href: '/laws?type=law', labelKm: 'ច្បាប់', labelEn: 'Laws' },
+      { href: '/laws?type=sub-decree', labelKm: 'អនុក្រឹត្យ', labelEn: 'Sub-Decrees' },
+      { href: '/laws?type=prakas', labelKm: 'ប្រកាស', labelEn: 'Prakas' },
+      { href: '/laws?type=announcement', labelKm: 'សេចក្តីជូនដំណឹង', labelEn: 'Announcements' },
+      {
+        href: '/documents',
+        labelKm: 'ឯកសារ និងបែបបទ',
+        labelEn: 'Documents and Forms',
+        descriptionKm: 'គំរូបែបបទ និងឯកសារស្នើសុំផ្សេងៗ',
+        descriptionEn: 'Sample forms and application documents',
+      },
+    ],
+  },
+  {
     href: '/about',
     labelKm: 'អំពីយើង',
     labelEn: 'About Us',
@@ -40,8 +58,8 @@ export const mainNavigation: NavItem[] = [
   },
   {
     href: '/starting-a-business',
-    labelKm: 'ចាប់ផ្តើមអាជីវកម្ម',
-    labelEn: 'Starting a Business',
+    labelKm: 'សេវាកម្មស្វ័យប្រវត្តិកម្ម',
+    labelEn: 'Automated Services',
     children: [
       {
         href: '/services/register-new-user',
@@ -64,27 +82,6 @@ export const mainNavigation: NavItem[] = [
         descriptionKm: 'ដាក់ពាក្យស្នើសុំចុះបញ្ជីថ្មី',
         descriptionEn: 'Submit a new registration application',
       },
-      {
-        href: '/starting-a-business/how-we-process-your-application',
-        labelKm: 'របៀបដែលយើងពិនិត្យពាក្យស្នើសុំ',
-        labelEn: 'How We Process Your Application',
-        descriptionKm: 'នីតិវិធីពិនិត្យផ្ទៃក្នុង',
-        descriptionEn: 'The internal review process',
-      },
-      {
-        href: '/starting-a-business/what-happens-next',
-        labelKm: 'បន្ទាប់ពីដាក់ពាក្យ',
-        labelEn: 'What Happens Next',
-        descriptionKm: 'ស្ថានភាពពាក្យស្នើសុំ និងលទ្ធផល',
-        descriptionEn: 'Application statuses and results',
-      },
-    ],
-  },
-  {
-    href: '/business-services',
-    labelKm: 'សេវាកម្មអាជីវកម្ម',
-    labelEn: 'Business Services',
-    children: [
       {
         href: '/services/change-business-details',
         labelKm: 'កែប្រែព័ត៌មានអាជីវកម្ម',
@@ -120,109 +117,22 @@ export const mainNavigation: NavItem[] = [
         descriptionKm: 'ធ្វើឲ្យគណនីអ្នកប្រើប្រាស់ដំណើរការ',
         descriptionEn: 'Activate a user account',
       },
-    ],
-  },
-  {
-    href: '/search',
-    labelKm: 'ស្វែងរក',
-    labelEn: 'Searching',
-    children: [
       {
-        href: '/search?type=entity',
-        labelKm: 'ស្វែងរកអង្គភាព',
-        labelEn: 'Search Entity',
-        descriptionKm: 'ស្វែងរកតាមឈ្មោះ ឬលេខចុះបញ្ជី',
-        descriptionEn: 'Search by name or registration number',
+        href: '/search',
+        labelKm: 'ស្វែងរកក្នុងបញ្ជី',
+        labelEn: 'Search the Register',
+        descriptionKm: 'ស្វែងរកអង្គភាព តួនាទី ឬឈ្មោះដែលបានបម្រុងទុក',
+        descriptionEn: 'Search entities, roles, or reserved names',
       },
       {
-        href: '/search?type=role',
-        labelKm: 'ស្វែងរកតួនាទី',
-        labelEn: 'Search Role',
-        descriptionKm: 'ស្វែងរកតួនាទីក្នុងអង្គភាព',
-        descriptionEn: 'Search roles within an entity',
-      },
-      {
-        href: '/search?type=reserved-name',
-        labelKm: 'ស្វែងរកឈ្មោះដែលបានបម្រុងទុក',
-        labelEn: 'Search Reserved Name',
-        descriptionKm: 'ពិនិត្យឈ្មោះដែលបានបម្រុងទុក',
-        descriptionEn: 'Check reserved business names',
-      },
-      {
-        href: '/search?type=document-code',
-        labelKm: 'ផ្ទៀងផ្ទាត់លេខកូដឯកសារ',
-        labelEn: 'Verify Document Code',
-        descriptionKm: 'ផ្ទៀងផ្ទាត់ឯកសារអេឡិចត្រូនិក',
-        descriptionEn: 'Verify an electronic document',
+        href: '/fees',
+        labelKm: 'ថ្លៃសេវា និងការផាកពិន័យ',
+        labelEn: 'Fees and Penalties',
+        descriptionKm: 'តារាងថ្លៃសេវាសាធារណៈ និងព័ត៌មានទូទាត់',
+        descriptionEn: 'Public service fee table and payment info',
       },
     ],
   },
-  {
-    href: '/fees',
-    labelKm: 'ថ្លៃសេវា និងការផាកពិន័យ',
-    labelEn: 'Fees and Penalties',
-    children: [
-      {
-        href: '/fees#fee-table',
-        labelKm: 'តារាងថ្លៃសេវាសាធារណៈ',
-        labelEn: 'Public Service Fee Table',
-      },
-      {
-        href: '/fees#how-to-pay',
-        labelKm: 'របៀបបង់ថ្លៃសេវា',
-        labelEn: 'How to Pay Fees',
-      },
-      {
-        href: '/fees#penalties',
-        labelKm: 'ការផាកពិន័យ',
-        labelEn: 'Penalties',
-      },
-    ],
-  },
-  {
-    href: '/laws',
-    labelKm: 'ច្បាប់ និងបទប្បញ្ញត្តិ',
-    labelEn: 'Laws and Regulations',
-    children: [
-      { href: '/laws?type=law', labelKm: 'ច្បាប់', labelEn: 'Laws' },
-      { href: '/laws?type=sub-decree', labelKm: 'អនុក្រឹត្យ', labelEn: 'Sub-Decrees' },
-      { href: '/laws?type=prakas', labelKm: 'ប្រកាស', labelEn: 'Prakas' },
-      { href: '/laws?type=announcement', labelKm: 'សេចក្តីជូនដំណឹង', labelEn: 'Announcements' },
-    ],
-  },
-  {
-    href: '/documents',
-    labelKm: 'ឯកសារ និងបែបបទ',
-    labelEn: 'Documents and Forms',
-    children: [
-      {
-        href: '/documents?category=new-registration',
-        labelKm: 'គំរូបែបបទ',
-        labelEn: 'Sample Forms',
-      },
-      {
-        href: '/documents?category=e-commerce',
-        labelKm: 'ឯកសារស្នើសុំពាណិជ្ជកម្មតាមប្រព័ន្ធអេឡិចត្រូនិក',
-        labelEn: 'E-commerce Application Documents',
-      },
-      {
-        href: '/documents?category=annual-declaration',
-        labelKm: 'បែបបទប្រកាសព័ត៌មានប្រចាំឆ្នាំ',
-        labelEn: 'Annual Declaration Forms',
-      },
-      {
-        href: '/documents?category=training',
-        labelKm: 'ពាក្យស្នើសុំវគ្គបណ្តុះបណ្តាល',
-        labelEn: 'Training Applications',
-      },
-      {
-        href: '/documents?category=guides',
-        labelKm: 'មគ្គុទ្ទេសក៍ចុះបញ្ជី',
-        labelEn: 'Registration Guides',
-      },
-    ],
-  },
-  { href: '/contact', labelKm: 'ទំនាក់ទំនង', labelEn: 'Contact' },
 ]
 
 export const footerNavigation = {

@@ -14,14 +14,7 @@ export function HeroSection() {
   const { locale, pick, t } = useLocale()
 
   return (
-    <section className="relative isolate overflow-hidden bg-navy text-white">
-      <div aria-hidden="true" className="kh-pattern-dark absolute inset-0 opacity-70" />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-br from-navy-deep via-navy to-navy-soft/80"
-        style={{ mixBlendMode: 'multiply' }}
-      />
-
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
       <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-24 lg:px-8">
         <div className="flex flex-col items-start gap-6">
           <p
@@ -127,7 +120,7 @@ export function HeroSection() {
       </div>
 
       {/* Quick links rail */}
-      <div className="relative border-t border-white/10 bg-navy-deep/70">
+      <div className="relative border-t border-white/10 bg-blue-900/70">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <h2 lang={locale} className="sr-only">
             {t('quickLinks')}

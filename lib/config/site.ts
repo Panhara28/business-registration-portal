@@ -20,6 +20,10 @@ export const siteConfig = {
     km: 'នាយកដ្ឋានចុះបញ្ជីពាណិជ្ជកម្ម',
     en: 'Business Registration Department',
   },
+  systemName: {
+    km: 'ប្រព័ន្ធស្វ័យប្រវត្តកម្មចុះបញ្ជី',
+    en: 'Automated Registration System',
+  },
   /** Hotline numbers published on the current Business Registration website. */
   hotlines: ['096 9 632 363', '088 6 083 082'],
   /**

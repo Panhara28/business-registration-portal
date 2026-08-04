@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Noto_Sans_Khmer } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { LocaleProvider } from '@/components/locale-provider'
 
@@ -12,11 +13,14 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const notoSansKhmer = Noto_Sans_Khmer({
-  subsets: ['khmer'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+const krasar = localFont({
+  src: [
+    { path: '../public/fonts/Krasar-Regular.ttf', weight: '400', style: 'normal' },
+    { path: '../public/fonts/Krasar-Medium.ttf', weight: '500', style: 'normal' },
+    { path: '../public/fonts/Krasar-Bold.ttf', weight: '700', style: 'normal' },
+  ],
   variable: '--font-khmer-sans',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -48,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="km" className={`bg-background ${inter.variable} ${notoSansKhmer.variable}`}>
+    <html lang="km" className={`bg-background ${inter.variable} ${krasar.variable}`}>
       <body className="font-sans antialiased">
         <LocaleProvider>{children}</LocaleProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

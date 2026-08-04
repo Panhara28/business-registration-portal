@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { ChevronDown, LogIn, Menu, Phone, Search, ShieldCheck, UserPlus, X } from 'lucide-react'
+import { ChevronDown, LogIn, Menu, UserPlus, X } from 'lucide-react'
 
 import { BrandLockup } from '@/components/layout/brand-lockup'
 import { LanguageToggle } from '@/components/layout/language-toggle'
@@ -52,27 +52,23 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50">
       {/* Official-site strip */}
-      <div className="bg-navy-deep text-white/85">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-1.5 sm:px-6 lg:px-8">
-          <p lang={locale} className="flex items-center gap-2 text-[0.7rem]">
-            <ShieldCheck className="size-3.5 shrink-0 text-teal" aria-hidden="true" />
-            <span>{t('officialBannerTitle')}</span>
-          </p>
-          <p className="flex items-center gap-2 text-[0.7rem]">
-            <Phone className="size-3.5 shrink-0 text-teal" aria-hidden="true" />
-            <span lang={locale} className="sr-only sm:not-sr-only">
-              {t('hotline')}:
-            </span>
-            {siteConfig.hotlines.map((number) => (
-              <a
-                key={number}
-                href={`tel:${number.replace(/\s/g, '')}`}
-                className="font-medium tabular-nums text-white underline-offset-4 hover:underline"
-              >
-                {number}
-              </a>
-            ))}
-          </p>
+      <div className="border-b border-border bg-white text-gray-800">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:justify-start">
+            <a href="tel:1266" className="flex items-center gap-1 transition hover:opacity-80">
+              <span>Hotline: 1266</span>
+            </a>
+            <span className="text-gray-400">|</span>
+            <a
+              href="mailto:cabinet.info@moc.gov.kh"
+              className="break-all transition hover:opacity-80 sm:break-normal"
+            >
+              cabinet.info@moc.gov.kh
+            </a>
+          </div>
+          <div lang={locale} className="text-gray-800">
+            {siteConfig.ministry.km} | {siteConfig.ministry.en} | {siteConfig.kingdom.en}
+          </div>
         </div>
       </div>
 
@@ -82,24 +78,7 @@ export function SiteHeader() {
           <BrandLockup />
 
           <div className="flex items-center gap-2">
-            <LanguageToggle className="hidden sm:inline-flex" />
-            <LinkButton
-              href={siteConfig.links.login}
-              variant="ghost"
-              size="sm"
-              className="hidden h-9 text-white hover:bg-white/10 hover:text-white lg:inline-flex"
-            >
-              <LogIn className="size-4" aria-hidden="true" />
-              <span lang={locale}>{t('logIn')}</span>
-            </LinkButton>
-            <LinkButton
-              href={siteConfig.links.register}
-              size="sm"
-              className="hidden h-9 bg-teal text-white hover:bg-teal/90 lg:inline-flex"
-            >
-              <UserPlus className="size-4" aria-hidden="true" />
-              <span lang={locale}>{t('registerNewUser')}</span>
-            </LinkButton>
+            <LanguageToggle className="hidden sm:inline-flex lg:hidden" />
 
             <button
               type="button"
@@ -205,15 +184,26 @@ export function SiteHeader() {
             })}
           </ul>
 
-          <Link
-            href={siteConfig.links.search}
-            lang={locale}
-            title={t('searchTheRegister')}
-            aria-label={t('searchTheRegister')}
-            className="my-2 hidden size-9 shrink-0 items-center justify-center self-center rounded-full border border-border text-muted-foreground transition-colors hover:border-teal hover:text-navy xl:flex"
-          >
-            <Search className="size-4 shrink-0" aria-hidden="true" />
-          </Link>
+          <div className="flex shrink-0 items-center gap-2 self-center py-2">
+            <LanguageToggle variant="light" />
+            <LinkButton
+              href={siteConfig.links.login}
+              variant="ghost"
+              size="sm"
+              className="h-9 text-foreground hover:bg-muted hover:text-navy"
+            >
+              <LogIn className="size-4" aria-hidden="true" />
+              <span lang={locale}>{t('logIn')}</span>
+            </LinkButton>
+            <LinkButton
+              href={siteConfig.links.register}
+              size="sm"
+              className="h-9 bg-teal text-white hover:bg-teal/90"
+            >
+              <UserPlus className="size-4" aria-hidden="true" />
+              <span lang={locale}>{t('registerNewUser')}</span>
+            </LinkButton>
+          </div>
         </div>
       </nav>
 

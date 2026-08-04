@@ -58,12 +58,12 @@
 :root {
   color-scheme: light;
 
-  /* Brand scale */
-  --navy-deep: oklch(0.21 0.048 249);
-  --navy: oklch(0.29 0.062 250);
-  --navy-soft: oklch(0.38 0.058 248);
-  --teal: oklch(0.55 0.088 202);
-  --teal-soft: oklch(0.94 0.021 200);
+  /* Brand scale — matches the external app's login-panel blue (Tailwind blue-950/800/600) */
+  --navy-deep: oklch(0.282 0.091 267.935);
+  --navy: oklch(0.424 0.199 265.638);
+  --navy-soft: oklch(0.546 0.245 262.881);
+  --teal: oklch(0.546 0.245 262.881);
+  --teal-soft: oklch(0.932 0.032 255.585);
   --emerald: oklch(0.62 0.132 160);
   --gold: oklch(0.76 0.114 87);
   --surface: oklch(0.975 0.006 240);
@@ -74,32 +74,32 @@
   --card-foreground: oklch(0.24 0.032 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.032 250);
-  --primary: oklch(0.29 0.062 250);
+  --primary: oklch(0.424 0.199 265.638);
   --primary-foreground: oklch(0.99 0.003 240);
   --secondary: oklch(0.962 0.008 240);
-  --secondary-foreground: oklch(0.29 0.062 250);
+  --secondary-foreground: oklch(0.424 0.199 265.638);
   --muted: oklch(0.968 0.007 240);
   --muted-foreground: oklch(0.5 0.024 250);
-  --accent: oklch(0.94 0.021 200);
-  --accent-foreground: oklch(0.29 0.062 250);
+  --accent: oklch(0.932 0.032 255.585);
+  --accent-foreground: oklch(0.424 0.199 265.638);
   --destructive: oklch(0.55 0.19 27);
   --border: oklch(0.912 0.012 240);
   --input: oklch(0.912 0.012 240);
-  --ring: oklch(0.55 0.088 202);
-  --chart-1: oklch(0.29 0.062 250);
-  --chart-2: oklch(0.55 0.088 202);
+  --ring: oklch(0.546 0.245 262.881);
+  --chart-1: oklch(0.424 0.199 265.638);
+  --chart-2: oklch(0.546 0.245 262.881);
   --chart-3: oklch(0.62 0.132 160);
   --chart-4: oklch(0.76 0.114 87);
   --chart-5: oklch(0.5 0.024 250);
   --radius: 1rem;
   --sidebar: oklch(0.975 0.006 240);
   --sidebar-foreground: oklch(0.24 0.032 250);
-  --sidebar-primary: oklch(0.29 0.062 250);
+  --sidebar-primary: oklch(0.424 0.199 265.638);
   --sidebar-primary-foreground: oklch(0.99 0.003 240);
-  --sidebar-accent: oklch(0.94 0.021 200);
-  --sidebar-accent-foreground: oklch(0.29 0.062 250);
+  --sidebar-accent: oklch(0.932 0.032 255.585);
+  --sidebar-accent-foreground: oklch(0.424 0.199 265.638);
   --sidebar-border: oklch(0.912 0.012 240);
-  --sidebar-ring: oklch(0.55 0.088 202);
+  --sidebar-ring: oklch(0.546 0.245 262.881);
 }
 
 @layer base {
@@ -110,9 +110,10 @@
     @apply bg-background text-foreground;
     font-feature-settings: 'cv11', 'ss01';
   }
-  /* Khmer script needs additional line-height so subscripts are never clipped. */
+  /* Khmer script needs the Krasar family plus additional line-height so subscripts are never clipped. */
   :lang(km),
   .font-khmer {
+    font-family: var(--font-khmer);
     line-height: 1.75;
   }
   h1:lang(km),
