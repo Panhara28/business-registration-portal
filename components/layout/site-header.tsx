@@ -51,7 +51,7 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
-    <header className="sticky top-0 z-50">
+    <header>
       {/* Official-site strip */}
       <div className="border-b border-border bg-white text-gray-800">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
@@ -119,7 +119,7 @@ export function SiteHeader() {
       <nav
         ref={navRef}
         aria-label={t('mainNavigation')}
-        className="hidden border-b border-white/40 bg-white/60 backdrop-blur-xl backdrop-saturate-150 lg:block"
+        className="sticky top-0 z-50 hidden border-b border-white/40 bg-white/60 backdrop-blur-xl backdrop-saturate-150 lg:block"
       >
         <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <ul className="flex items-stretch">
