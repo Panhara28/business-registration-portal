@@ -1,0 +1,309 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
+import { ChevronDown, LogIn, Menu, Phone, Search, ShieldCheck, UserPlus, X } from 'lucide-react'
+
+import { BrandLockup } from '@/components/layout/brand-lockup'
+import { LanguageToggle } from '@/components/layout/language-toggle'
+import { LinkButton } from '@/components/link-button'
+import { useLocale } from '@/components/locale-provider'
+import { siteConfig } from '@/lib/config/site'
+import { mainNavigation } from '@/lib/content/navigation'
+import { cn } from '@/lib/utils'
+
+export function SiteHeader() {
+  const { locale, pick, t } = useLocale()
+  const pathname = usePathname()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openSection, setOpenSection] = useState<string | null>(null)
+  const [desktopSection, setDesktopSection] = useState<string | null>(null)
+  const navRef = useRef<HTMLElement | null>(null)
+
+  // Close the desktop dropdown on Escape or on a click outside the nav.
+  useEffect(() => {
+    if (!desktopSection) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setDesktopSection(null)
+    }
+    const onPointerDown = (event: PointerEvent) => {
+      if (!navRef.current?.contains(event.target as Node)) setDesktopSection(null)
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('pointerdown', onPointerDown)
+    }
+  }, [desktopSection])
+
+  // Any route change should leave no menu hanging open.
+  useEffect(() => {
+    setDesktopSection(null)
+    setMobileOpen(false)
+  }, [pathname])
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
+
+  return (
+    <header className="sticky top-0 z-50">
+      {/* Official-site strip */}
+      <div className="bg-navy-deep text-white/85">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-1.5 sm:px-6 lg:px-8">
+          <p lang={locale} className="flex items-center gap-2 text-[0.7rem]">
+            <ShieldCheck className="size-3.5 shrink-0 text-teal" aria-hidden="true" />
+            <span>{t('officialBannerTitle')}</span>
+          </p>
+          <p className="flex items-center gap-2 text-[0.7rem]">
+            <Phone className="size-3.5 shrink-0 text-teal" aria-hidden="true" />
+            <span lang={locale} className="sr-only sm:not-sr-only">
+              {t('hotline')}:
+            </span>
+            {siteConfig.hotlines.map((number) => (
+              <a
+                key={number}
+                href={`tel:${number.replace(/\s/g, '')}`}
+                className="font-medium tabular-nums text-white underline-offset-4 hover:underline"
+              >
+                {number}
+              </a>
+            ))}
+          </p>
+        </div>
+      </div>
+
+      {/* Identity bar */}
+      <div className="border-b border-white/10 bg-navy">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+          <BrandLockup />
+
+          <div className="flex items-center gap-2">
+            <LanguageToggle className="hidden sm:inline-flex" />
+            <LinkButton
+              href={siteConfig.links.login}
+              variant="ghost"
+              size="sm"
+              className="hidden h-9 text-white hover:bg-white/10 hover:text-white lg:inline-flex"
+            >
+              <LogIn className="size-4" aria-hidden="true" />
+              <span lang={locale}>{t('logIn')}</span>
+            </LinkButton>
+            <LinkButton
+              href={siteConfig.links.register}
+              size="sm"
+              className="hidden h-9 bg-teal text-white hover:bg-teal/90 lg:inline-flex"
+            >
+              <UserPlus className="size-4" aria-hidden="true" />
+              <span lang={locale}>{t('registerNewUser')}</span>
+            </LinkButton>
+
+            <button
+              type="button"
+              onClick={() => setMobileOpen((open) => !open)}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              className="inline-flex items-center gap-2 rounded-md border border-white/25 px-3 py-2 text-sm font-medium text-white lg:hidden"
+            >
+              {mobileOpen ? (
+                <X className="size-4" aria-hidden="true" />
+              ) : (
+                <Menu className="size-4" aria-hidden="true" />
+              )}
+              <span lang={locale}>{mobileOpen ? t('closeMenu') : t('menu')}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop navigation */}
+      <nav
+        ref={navRef}
+        aria-label={t('mainNavigation')}
+        className="hidden border-b border-border bg-background shadow-soft lg:block"
+      >
+        <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
+          <ul className="flex items-stretch">
+            {mainNavigation.map((item) => {
+              const itemClasses = cn(
+                'flex h-full items-center gap-1 border-b-2 px-2.5 py-3 text-[0.8125rem] font-medium whitespace-nowrap transition-colors xl:px-3.5 xl:text-sm',
+                isActive(item.href)
+                  ? 'border-teal text-navy'
+                  : 'border-transparent text-foreground/75 hover:border-teal/40 hover:text-navy',
+              )
+
+              if (!item.children) {
+                return (
+                  <li key={item.href}>
+                    <Link href={item.href} lang={locale} className={itemClasses}>
+                      {pick(item.labelKm, item.labelEn)}
+                    </Link>
+                  </li>
+                )
+              }
+
+              const open = desktopSection === item.href
+
+              return (
+                <li key={item.href} className="relative">
+                  <button
+                    type="button"
+                    aria-expanded={open}
+                    aria-haspopup="true"
+                    onClick={() => setDesktopSection(open ? null : item.href)}
+                    lang={locale}
+                    className={itemClasses}
+                  >
+                    {pick(item.labelKm, item.labelEn)}
+                    <ChevronDown
+                      className={cn('size-3.5 transition-transform', open && 'rotate-180')}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  {open && (
+                    <div className="absolute left-0 top-full z-50 w-80">
+                      <ul className="mt-1 overflow-hidden rounded-xl border border-border bg-card p-1.5 shadow-lifted">
+                        <li className="border-b border-border/60 pb-1.5">
+                          <Link
+                            href={item.href}
+                            onClick={() => setDesktopSection(null)}
+                            className="flex rounded-lg px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-accent"
+                          >
+                            <span lang={locale}>{pick(item.labelKm, item.labelEn)}</span>
+                          </Link>
+                        </li>
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              onClick={() => setDesktopSection(null)}
+                              className="flex flex-col gap-0.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-accent"
+                            >
+                              <span lang={locale} className="text-sm font-medium text-navy">
+                                {pick(child.labelKm, child.labelEn)}
+                              </span>
+                              {(child.descriptionKm || child.descriptionEn) && (
+                                <span
+                                  lang={locale}
+                                  className="text-xs leading-relaxed text-muted-foreground"
+                                >
+                                  {pick(child.descriptionKm ?? '', child.descriptionEn)}
+                                </span>
+                              )}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
+
+          <Link
+            href={siteConfig.links.search}
+            lang={locale}
+            title={t('searchTheRegister')}
+            aria-label={t('searchTheRegister')}
+            className="my-2 hidden size-9 shrink-0 items-center justify-center self-center rounded-full border border-border text-muted-foreground transition-colors hover:border-teal hover:text-navy xl:flex"
+          >
+            <Search className="size-4 shrink-0" aria-hidden="true" />
+          </Link>
+        </div>
+      </nav>
+
+      {/* Mobile navigation */}
+      {mobileOpen && (
+        <nav
+          id="mobile-navigation"
+          aria-label={t('mainNavigation')}
+          className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-border bg-background lg:hidden"
+        >
+          <ul className="mx-auto flex max-w-7xl flex-col divide-y divide-border px-4 sm:px-6">
+            {mainNavigation.map((item) => {
+              const expanded = openSection === item.href
+              return (
+                <li key={item.href} className="py-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <Link
+                      href={item.href}
+                      lang={locale}
+                      onClick={() => setMobileOpen(false)}
+                      className={cn(
+                        'flex-1 py-3 text-sm font-medium',
+                        isActive(item.href) ? 'text-teal' : 'text-foreground',
+                      )}
+                    >
+                      {pick(item.labelKm, item.labelEn)}
+                    </Link>
+                    {item.children && (
+                      <button
+                        type="button"
+                        onClick={() => setOpenSection(expanded ? null : item.href)}
+                        aria-expanded={expanded}
+                        className="rounded-md p-2 text-muted-foreground"
+                      >
+                        <span className="sr-only">
+                          {pick(item.labelKm, item.labelEn)}
+                        </span>
+                        <ChevronDown
+                          className={cn('size-4 transition-transform', expanded && 'rotate-180')}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    )}
+                  </div>
+
+                  {item.children && expanded && (
+                    <ul className="flex flex-col gap-1 pb-3 pl-3">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            lang={locale}
+                            onClick={() => setMobileOpen(false)}
+                            className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-navy"
+                          >
+                            {pick(child.labelKm, child.labelEn)}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
+
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6">
+            <LanguageToggle variant="light" className="self-start sm:hidden" />
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <LinkButton
+                href={siteConfig.links.login}
+                variant="outline"
+                className="flex-1"
+                onClick={() => setMobileOpen(false)}
+              >
+                <LogIn className="size-4" aria-hidden="true" />
+                <span lang={locale}>{t('logIn')}</span>
+              </LinkButton>
+              <LinkButton
+                href={siteConfig.links.register}
+                className="flex-1 bg-navy text-white hover:bg-navy/90"
+                onClick={() => setMobileOpen(false)}
+              >
+                <UserPlus className="size-4" aria-hidden="true" />
+                <span lang={locale}>{t('registerNewUser')}</span>
+              </LinkButton>
+            </div>
+          </div>
+        </nav>
+      )}
+    </header>
+  )
+}
