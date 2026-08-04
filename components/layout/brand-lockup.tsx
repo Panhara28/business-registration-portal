@@ -42,7 +42,7 @@ export function BrandLockup({
         </span>
         <span
           className={cn(
-            'text-sm font-medium tracking-wide',
+            'text-base font-medium tracking-wide',
             onDark ? 'text-teal-soft/80' : 'text-muted-foreground',
           )}
         >
@@ -51,7 +51,7 @@ export function BrandLockup({
         <span
           lang="km"
           className={cn(
-            'text-sm font-medium tracking-wide',
+            'text-base font-medium tracking-wide',
             onDark ? 'text-teal-soft/80' : 'text-muted-foreground',
           )}
         >
