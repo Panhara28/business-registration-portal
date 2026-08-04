@@ -51,8 +51,9 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
-    <header>
-      {/* Official-site strip */}
+    <>
+      <header>
+        {/* Official-site strip */}
       <div className="border-b border-border bg-white text-gray-800">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:justify-start">
@@ -114,6 +115,7 @@ export function SiteHeader() {
           </div>
         </div>
       </div>
+      </header>
 
       {/* Desktop navigation */}
       <nav
@@ -311,6 +313,6 @@ export function SiteHeader() {
           </div>
         </nav>
       )}
-    </header>
+    </>
   )
 }
