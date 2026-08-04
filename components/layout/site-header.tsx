@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -75,7 +76,25 @@ export function SiteHeader() {
       {/* Identity bar */}
       <div className="border-b border-white/10 bg-navy">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <BrandLockup />
+          <div className="flex items-center gap-4">
+            <BrandLockup />
+
+            <div className="hidden items-center gap-3 border-l border-white/15 pl-4 sm:flex">
+              <span className="flex flex-col leading-tight text-white/85">
+                <span lang="km" className="text-sm font-medium">
+                  {siteConfig.kingdom.km}
+                </span>
+                <span className="text-xs text-white/60">{siteConfig.kingdom.en}</span>
+              </span>
+              <Image
+                src="/flag-topnav.png"
+                alt=""
+                width={48}
+                height={32}
+                className="h-8 w-12 shrink-0 rounded-sm object-cover shadow-sm"
+              />
+            </div>
+          </div>
 
           <div className="flex items-center gap-2">
             <LanguageToggle className="hidden sm:inline-flex lg:hidden" />
