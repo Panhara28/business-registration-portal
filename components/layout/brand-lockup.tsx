@@ -34,7 +34,7 @@ export function BrandLockup({
         <span
           lang="km"
           className={cn(
-            'text-lg font-semibold text-balance sm:text-xl',
+            'text-xl font-semibold text-balance sm:text-2xl',
             onDark ? 'text-white' : 'text-navy',
           )}
         >
