@@ -121,7 +121,7 @@ export function SiteHeader() {
       <nav
         ref={navRef}
         aria-label={t('mainNavigation')}
-        className="sticky top-0 z-50 hidden border-b border-border bg-background shadow-soft lg:block"
+        className="sticky top-0 z-50 hidden border-b border-white/50 bg-white/65 shadow-[0_1px_2px_rgba(15,23,42,0.06)] backdrop-blur-lg backdrop-saturate-150 backdrop-brightness-125 lg:block"
       >
         <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <ul className="flex items-stretch">
@@ -164,7 +164,7 @@ export function SiteHeader() {
 
                   {open && (
                     <div className="absolute left-0 top-full z-50 w-80">
-                      <ul className="mt-1 overflow-hidden rounded-xl border border-border bg-card p-1.5 shadow-lifted">
+                      <ul className="mt-1 overflow-hidden rounded-xl border border-white/50 bg-white/80 p-1.5 shadow-lifted backdrop-blur-lg backdrop-saturate-150">
                         <li className="border-b border-border/60 pb-1.5">
                           <Link
                             href={item.href}
@@ -209,7 +209,7 @@ export function SiteHeader() {
               href={siteConfig.links.login}
               variant="ghost"
               size="sm"
-              className="h-9 text-foreground hover:bg-muted hover:text-navy"
+              className="h-9 rounded-full border border-border/60 bg-white/50 text-foreground backdrop-blur-md hover:bg-white/80 hover:text-navy"
             >
               <LogIn className="size-4" aria-hidden="true" />
               <span lang={locale}>{t('logIn')}</span>
@@ -217,7 +217,7 @@ export function SiteHeader() {
             <LinkButton
               href={siteConfig.links.register}
               size="sm"
-              className="h-9 bg-teal text-white hover:bg-teal/90"
+              className="h-9 rounded-full bg-teal text-white shadow-sm hover:bg-teal/90"
             >
               <UserPlus className="size-4" aria-hidden="true" />
               <span lang={locale}>{t('registerNewUser')}</span>
