@@ -7,7 +7,6 @@ import { ArrowRight, Info, Search } from 'lucide-react'
 import { useLocale } from '@/components/locale-provider'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/lib/config/site'
-import { quickResourceLinks } from '@/lib/content/navigation'
 import { cn } from '@/lib/utils'
 
 export function HeroSection() {
@@ -116,28 +115,6 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Quick links rail */}
-      <div className="relative border-t border-white/10 bg-blue-900/70">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <h2 lang={locale} className="sr-only">
-            {t('quickLinks')}
-          </h2>
-          <ul className="flex flex-wrap gap-2">
-            {quickResourceLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  lang={locale}
-                  className="inline-flex items-center rounded-full border border-white/20 px-3.5 py-1.5 text-xs font-medium text-white/85 transition-colors hover:border-teal hover:bg-white/10 hover:text-white"
-                >
-                  {pick(link.labelKm, link.labelEn)}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
