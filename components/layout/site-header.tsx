@@ -76,10 +76,10 @@ export function SiteHeader() {
       {/* Identity bar */}
       <div className="border-b border-white/10 bg-navy">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
-            <BrandLockup />
+          <BrandLockup />
 
-            <div className="hidden items-center gap-3 border-l border-white/15 pl-4 sm:flex">
+          <div className="flex items-center gap-4">
+            <div className="hidden items-center gap-3 border-r border-white/15 pr-4 sm:flex">
               <span className="flex flex-col leading-tight text-white/85">
                 <span lang="km" className="text-sm font-medium">
                   {siteConfig.kingdom.km}
@@ -94,9 +94,7 @@ export function SiteHeader() {
                 className="h-8 w-12 shrink-0 rounded-sm object-cover shadow-sm"
               />
             </div>
-          </div>
 
-          <div className="flex items-center gap-2">
             <LanguageToggle className="hidden sm:inline-flex lg:hidden" />
 
             <button
