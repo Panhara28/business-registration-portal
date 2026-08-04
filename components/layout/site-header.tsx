@@ -51,9 +51,9 @@ export function SiteHeader() {
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   return (
-    <header className="sticky top-0 z-50 shadow-[0_8px_32px_-12px_rgba(15,23,42,0.25)]">
+    <header className="sticky top-0 z-50">
       {/* Official-site strip */}
-      <div className="border-b border-white/40 bg-white/60 text-gray-800 backdrop-blur-xl backdrop-saturate-150">
+      <div className="border-b border-border bg-white text-gray-800">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:justify-start">
             <a href="tel:1266" className="flex items-center gap-1 transition hover:opacity-80">
@@ -74,11 +74,7 @@ export function SiteHeader() {
       </div>
 
       {/* Identity bar */}
-      <div className="relative border-b border-white/15 bg-navy/75 backdrop-blur-xl backdrop-saturate-150">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
-        />
+      <div className="border-b border-white/10 bg-navy">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <BrandLockup />
 
@@ -233,7 +229,7 @@ export function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label={t('mainNavigation')}
-          className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-white/40 bg-white/85 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
+          className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-border bg-background lg:hidden"
         >
           <ul className="mx-auto flex max-w-7xl flex-col divide-y divide-border px-4 sm:px-6">
             {mainNavigation.map((item) => {
