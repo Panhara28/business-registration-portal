@@ -24,7 +24,7 @@ export function SiteFooter() {
   ]
 
   return (
-    <footer className="bg-navy-deep text-white/70">
+    <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white/70">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.3fr_repeat(3,1fr)] lg:gap-8 lg:px-8">
         <div className="flex flex-col gap-4">
           <p lang={locale} className="text-sm font-semibold text-white">
