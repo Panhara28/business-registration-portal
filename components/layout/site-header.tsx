@@ -121,7 +121,7 @@ export function SiteHeader() {
       <nav
         ref={navRef}
         aria-label={t('mainNavigation')}
-        className="sticky top-0 z-50 hidden border-b border-white/60 bg-white/90 shadow-[0_1px_2px_rgba(15,23,42,0.06)] backdrop-blur-xl backdrop-saturate-150 lg:block"
+        className="sticky top-0 z-50 hidden border-b border-white/50 bg-white/55 shadow-[0_1px_2px_rgba(15,23,42,0.06)] backdrop-blur-2xl backdrop-saturate-150 backdrop-brightness-125 lg:block"
       >
         <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <ul className="flex items-stretch">
