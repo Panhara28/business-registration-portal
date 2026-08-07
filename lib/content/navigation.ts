@@ -111,7 +111,7 @@ export const mainNavigation: NavItem[] = [
         descriptionEn: 'Request authority over an existing company',
       },
       {
-        href: '/services/account-activation',
+        href: '/services/company-authority',
         labelKm: 'ដំណើរការគណនី',
         labelEn: 'Account Activation',
         descriptionKm: 'ធ្វើឲ្យគណនីអ្នកប្រើប្រាស់ដំណើរការ',

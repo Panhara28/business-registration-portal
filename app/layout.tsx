@@ -3,6 +3,9 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
+import { SkipToContent } from '@/components/layout/skip-to-content'
 import { LocaleProvider } from '@/components/locale-provider'
 
 import './globals.css'
@@ -54,7 +57,12 @@ export default function RootLayout({
   return (
     <html lang="km" className={`bg-background ${inter.variable} ${krasar.variable}`}>
       <body className="font-sans antialiased">
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider>
+          <SkipToContent />
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+          <SiteFooter />
+        </LocaleProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
