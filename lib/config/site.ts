@@ -25,7 +25,7 @@ export const siteConfig = {
     en: 'Automated Registration System',
   },
   /** Hotline numbers published on the current Business Registration website. */
-  hotlines: ['096 9 632 363', '088 6 083 082'],
+  hotlines: ['1266'],
   /**
    * Office hours are not published as a verified value in this prototype.
    * TODO: replace with the official published office hours.

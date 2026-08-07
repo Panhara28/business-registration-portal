@@ -14,7 +14,7 @@ export function ProcessSection() {
     <section className="relative isolate overflow-hidden bg-navy py-16 lg:py-24">
       <div aria-hidden="true" className="kh-pattern-dark absolute inset-0 opacity-50" />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex max-w-screen-2xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={t('processEyebrow')}
           lead={t('processTitleLead')}

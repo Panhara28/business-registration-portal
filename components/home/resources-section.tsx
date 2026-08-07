@@ -82,7 +82,7 @@ export function ResourcesSection() {
 
   return (
     <section className="bg-surface py-16 lg:py-24">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow={t('resourcesEyebrow')}
           lead={t('resourcesTitleLead')}

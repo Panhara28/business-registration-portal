@@ -159,8 +159,6 @@ export const footerNavigation = {
   utility: [
     { href: '/privacy', labelKm: 'ឯកជនភាព', labelEn: 'Privacy' },
     { href: '/terms', labelKm: 'លក្ខខណ្ឌប្រើប្រាស់', labelEn: 'Terms of Use' },
-    { href: '/accessibility', labelKm: 'លទ្ធភាពប្រើប្រាស់', labelEn: 'Accessibility' },
-    { href: '/sitemap', labelKm: 'ផែនទីគេហទំព័រ', labelEn: 'Sitemap' },
   ],
 }
 

@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Info, Search } from 'lucide-react'
+import { ArrowRight, Search } from 'lucide-react'
 
 import { useLocale } from '@/components/locale-provider'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -25,11 +25,11 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-24 lg:px-8">
+      <div className="relative mx-auto grid max-w-screen-2xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-24 lg:px-8">
         <div className="flex flex-col items-start gap-6">
           <p
             lang={locale}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium tracking-wide"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-sm font-medium tracking-wide"
           >
             <span aria-hidden="true" className="size-1.5 rounded-full bg-teal" />
             {t('heroEyebrow')}
@@ -37,13 +37,13 @@ export function HeroSection() {
 
           <h1
             lang={locale}
-            className="text-4xl leading-tight font-semibold text-balance sm:text-5xl lg:text-[3.4rem]"
+            className="text-4xl leading-tight font-semibold text-balance sm:text-5xl lg:text-[3.1rem]"
           >
-            {t('heroTitleLead')}{' '}
+            {t('heroTitleLead')}
             <span className="text-teal-soft">{t('heroTitleAccent')}</span>
           </h1>
 
-          <p lang={locale} className="max-w-xl text-base leading-relaxed text-white/80 text-pretty">
+          <p lang={locale} className="max-w-full text-base leading-relaxed text-white/80 text-pretty">
             {t('heroBody')}
           </p>
 
@@ -62,7 +62,7 @@ export function HeroSection() {
               href="/starting-a-business/how-we-process-your-application"
               className={cn(
                 buttonVariants({ size: 'lg', variant: 'outline' }),
-                'h-11 gap-2 px-6 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white',
+                'h-11 gap-2 px-6 border-white/20 bg-transparent text-white hover:bg-white/3 hover:text-white dark:border-white/20 dark:bg-transparent dark:hover:bg-white/3',
               )}
             >
               <span lang={locale}>{t('howItWorks')}</span>
@@ -73,7 +73,7 @@ export function HeroSection() {
           <form
             action={siteConfig.links.search}
             role="search"
-            className="flex w-full max-w-xl flex-col gap-2 rounded-xl border border-white/15 bg-white/10 p-2 backdrop-blur-sm sm:flex-row"
+            className="flex w-full max-w-xl flex-col gap-2 rounded-xl border border-white/15 bg-white/3 p-2 backdrop-blur-sm sm:flex-row"
           >
             <label htmlFor="hero-search" className="sr-only" lang={locale}>
               {t('searchTheRegister')}
@@ -93,10 +93,6 @@ export function HeroSection() {
               <span lang={locale}>{t('search')}</span>
             </Button>
           </form>
-
-          <p lang={locale} className="text-xs leading-relaxed text-white/60">
-            {t('trustedNote')}
-          </p>
         </div>
 
         <div className="flex flex-col gap-5">
@@ -112,19 +108,6 @@ export function HeroSection() {
               sizes="(min-width: 1024px) 42vw, 100vw"
               className="object-cover"
             />
-          </div>
-
-          {/* Prototype disclosure — kept visible so the demo is never mistaken for the live system. */}
-          <div className="flex items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
-            <Info className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden="true" />
-            <div className="flex flex-col gap-1">
-              <p lang={locale} className="text-sm font-semibold text-white">
-                {t('prototypeNoticeTitle')}
-              </p>
-              <p lang={locale} className="text-xs leading-relaxed text-white/75">
-                {t('prototypeNoticeBody')}
-              </p>
-            </div>
           </div>
         </div>
       </div>

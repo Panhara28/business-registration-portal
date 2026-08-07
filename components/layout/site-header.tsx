@@ -55,7 +55,7 @@ export function SiteHeader() {
       <header>
         {/* Official-site strip */}
       <div className="border-b border-border bg-white text-gray-800">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
+        <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-2 px-4 py-2 text-center text-sm sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:justify-start">
             <a href="tel:1266" className="flex items-center gap-1 transition hover:opacity-80">
               <span>Hotline: 1266</span>
@@ -76,7 +76,7 @@ export function SiteHeader() {
 
       {/* Identity bar */}
       <div className="border-b border-white/10 bg-navy">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <BrandLockup />
 
           <div className="flex items-center gap-4">
@@ -123,7 +123,7 @@ export function SiteHeader() {
         aria-label={t('mainNavigation')}
         className="sticky top-0 z-50 hidden border-b border-white/50 bg-white/65 shadow-[0_1px_2px_rgba(15,23,42,0.06)] backdrop-blur-lg backdrop-saturate-150 backdrop-brightness-125 lg:block"
       >
-        <div className="mx-auto flex max-w-7xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl items-stretch justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <ul className="flex items-stretch">
             {mainNavigation.map((item) => {
               const itemClasses = cn(
@@ -164,7 +164,7 @@ export function SiteHeader() {
 
                   {open && (
                     <div className="absolute left-0 top-full z-50 w-80">
-                      <ul className="mt-1 overflow-hidden rounded-xl border border-white/50 bg-white/80 p-1.5 shadow-lifted backdrop-blur-lg backdrop-saturate-150">
+                      <ul className="mt-1 overflow-hidden rounded-xl border border-white/50 bg-white p-1.5 shadow-lifted">
                         <li className="border-b border-border/60 pb-1.5">
                           <Link
                             href={item.href}
@@ -233,7 +233,7 @@ export function SiteHeader() {
           aria-label={t('mainNavigation')}
           className="max-h-[calc(100vh-7rem)] overflow-y-auto border-b border-border bg-background lg:hidden"
         >
-          <ul className="mx-auto flex max-w-7xl flex-col divide-y divide-border px-4 sm:px-6">
+          <ul className="mx-auto flex max-w-screen-2xl flex-col divide-y divide-border px-4 sm:px-6">
             {mainNavigation.map((item) => {
               const expanded = openSection === item.href
               return (
@@ -289,7 +289,7 @@ export function SiteHeader() {
             })}
           </ul>
 
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:px-6">
+          <div className="mx-auto flex max-w-screen-2xl flex-col gap-3 px-4 py-4 sm:px-6">
             <LanguageToggle variant="light" className="self-start sm:hidden" />
             <div className="flex flex-col gap-2 sm:flex-row">
               <LinkButton

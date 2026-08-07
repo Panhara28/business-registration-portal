@@ -13,7 +13,7 @@ export function AboutSection() {
 
   return (
     <section className="bg-background py-16 lg:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-screen-2xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
         <div className="flex flex-col gap-6">
           <SectionHeading
             eyebrow={t('aboutEyebrow')}

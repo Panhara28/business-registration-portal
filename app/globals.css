@@ -110,11 +110,13 @@
     @apply bg-background text-foreground;
     font-feature-settings: 'cv11', 'ss01';
   }
-  /* Khmer script needs the Krasar family plus additional line-height so subscripts are never clipped. */
+  /* Khmer script needs the Krasar family plus additional line-height so subscripts are never clipped.
+     The Latin cv11/ss01 stylistic sets above break Krasar's coeng (subscript) shaping, so reset them here. */
   :lang(km),
   .font-khmer {
     font-family: var(--font-khmer);
     line-height: 1.75;
+    font-feature-settings: normal;
   }
   h1:lang(km),
   h2:lang(km),

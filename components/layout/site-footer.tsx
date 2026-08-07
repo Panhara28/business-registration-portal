@@ -24,8 +24,19 @@ export function SiteFooter() {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white/70">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.3fr_repeat(3,1fr)] lg:gap-8 lg:px-8">
+    <footer className="relative isolate overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white/70">
+      <div
+        className="absolute inset-0 opacity-12"
+        aria-hidden="true"
+        style={{
+          backgroundImage: "url('/kbach-pka-chan.png')",
+          backgroundRepeat: 'repeat',
+          backgroundSize: '90px auto',
+          backgroundPosition: 'top left',
+        }}
+      />
+
+      <div className="relative mx-auto grid max-w-screen-2xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.3fr_repeat(3,1fr)] lg:gap-8 lg:px-8">
         <div className="flex flex-col gap-4">
           <p lang={locale} className="text-sm font-semibold text-white">
             {pick(siteConfig.department.km, siteConfig.department.en)}
@@ -67,8 +78,8 @@ export function SiteFooter() {
         ))}
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
+      <div className="relative border-t border-white/10">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:justify-between lg:px-8">
           <div className="flex flex-col gap-2">
             <h2 lang={locale} className="text-xs font-semibold tracking-wide text-white uppercase">
               {t('footerContact')}
