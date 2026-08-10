@@ -22,7 +22,7 @@ export default function HowWeProcessApplicationPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
           <ol className="flex flex-col gap-4">
             {processSteps.map((step) => (
               <li key={step.order} className="flex gap-4 rounded-xl border border-border bg-card p-5">

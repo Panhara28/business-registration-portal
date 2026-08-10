@@ -30,7 +30,7 @@ export default function StartingABusinessPage() {
         <div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {startingNav?.children?.map((child) => (
-              <li key={child.href}>
+              <li key={`${child.href}-${child.labelEn}`}>
                 <Link
                   href={child.href}
                   className="group flex h-full flex-col gap-2 rounded-xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-teal/50 hover:shadow-soft"

@@ -175,7 +175,7 @@ export function SiteHeader() {
                           </Link>
                         </li>
                         {item.children.map((child) => (
-                          <li key={child.href}>
+                          <li key={`${child.href}-${child.labelEn}`}>
                             <Link
                               href={child.href}
                               onClick={() => setDesktopSection(null)}
@@ -271,7 +271,7 @@ export function SiteHeader() {
                   {item.children && expanded && (
                     <ul className="flex flex-col gap-1 pb-3 pl-3">
                       {item.children.map((child) => (
-                        <li key={child.href}>
+                        <li key={`${child.href}-${child.labelEn}`}>
                           <Link
                             href={child.href}
                             lang={locale}

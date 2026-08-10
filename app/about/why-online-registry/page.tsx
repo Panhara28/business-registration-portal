@@ -23,7 +23,7 @@ export default function WhyOnlineRegistryPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto flex max-w-3xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
           <ul className="flex flex-col gap-3">
             {registryBenefits.map((benefit) => (
               <li key={benefit.en} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">

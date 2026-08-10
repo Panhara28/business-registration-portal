@@ -24,7 +24,7 @@ export default function LoginPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto flex max-w-sm flex-col gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-6 px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-3 rounded-xl border border-gold/40 bg-gold/10 p-4">
             <Info className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden="true" />
             <p lang={locale} className="text-xs leading-relaxed text-foreground/80 text-pretty">

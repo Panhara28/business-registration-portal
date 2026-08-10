@@ -21,7 +21,7 @@ export default function ContactPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto grid max-w-3xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-screen-2xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="flex flex-col gap-4 rounded-2xl bg-navy p-6 text-white">
             <p lang={locale} className="flex items-center gap-2 text-xs font-semibold tracking-wide text-teal-soft uppercase">
               <Phone className="size-4" aria-hidden="true" />

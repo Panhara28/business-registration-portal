@@ -26,7 +26,7 @@ export default function FaqPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto flex max-w-3xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
           {faqCategories.map((category) => {
             const items = faqs.filter((faq) => faq.category === category.key)
             return (

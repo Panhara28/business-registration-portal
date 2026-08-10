@@ -27,7 +27,7 @@ export default function PrivacyPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto flex max-w-2xl flex-col gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-6 px-4 sm:px-6 lg:px-8">
           <Badge variant="outline" className="w-fit border-gold/50 bg-gold/10 text-foreground">
             <span lang={locale}>{t('placeholderBadge')}</span>
           </Badge>

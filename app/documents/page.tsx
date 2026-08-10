@@ -24,7 +24,7 @@ export default function DocumentsPage() {
       />
 
       <section className="bg-background py-16 lg:py-24">
-        <div className="mx-auto flex max-w-3xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-screen-2xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
           {formCategories.map((category) => {
             const documents = formDocuments.filter((doc) => doc.category === category.key)
             if (documents.length === 0) return null
